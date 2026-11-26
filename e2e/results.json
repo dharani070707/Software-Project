@@ -1,0 +1,902 @@
+{
+  "config": {
+    "argv": [
+      "/home/dharani-prasad-s/.nvm/versions/node/v22.22.2/bin/node",
+      "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/node_modules/.bin/playwright",
+      "test",
+      "--debug"
+    ],
+    "configFile": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/playwright.config.ts",
+    "rootDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 0
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "snapshotDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 0,
+        "use": {
+          "baseURL": "http://localhost:8081",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.8154.6 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "headless": false
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "firefox",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "snapshotDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 0,
+        "use": {
+          "baseURL": "http://localhost:8081",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:159.0) Gecko/20100101 Firefox/159.0",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "firefox",
+          "headless": false
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "webkit",
+        "testDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "snapshotDir": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 0,
+        "use": {
+          "baseURL": "http://localhost:8081",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1792,
+            "height": 1120
+          },
+          "deviceScaleFactor": 2,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "webkit",
+          "headless": false
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth/logic.spec.ts",
+      "file": "auth/logic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-AUTH-01 (admin): valid login lands on correct dashboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8482,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T16:10:55.493Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-568870cc04c52daea162",
+          "file": "auth/logic.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-01 (doctor): valid login lands on correct dashboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T16:11:04.345Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-9cbc38340cd9c374522e",
+          "file": "auth/logic.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-01 (patient): valid login lands on correct dashboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T16:11:17.896Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-fe44ca5c4400cf78e34e",
+          "file": "auth/logic.spec.ts",
+          "line": 6,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-02: wrong password shows error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6364,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T16:11:27.091Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-00e7053a4159633f1533",
+          "file": "auth/logic.spec.ts",
+          "line": 14,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-03: unknown email gives same error as wrong password",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5026,
+                  "error": {
+                    "message": "ReferenceError: uniqueEmail is not defined",
+                    "stack": "ReferenceError: uniqueEmail is not defined\n    at /home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests/auth/logic.spec.ts:25:15",
+                    "location": {
+                      "file": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests/auth/logic.spec.ts",
+                      "column": 15,
+                      "line": 25
+                    },
+                    "snippet": " \u001b[90m 23 |\u001b[39m \u001b[90m// TC-AUTH-03: unknown email must not reveal that the account doesn't exist\u001b[39m\n \u001b[90m 24 |\u001b[39m test(\u001b[32m'TC-AUTH-03: unknown email gives same error as wrong password'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m uniqueEmail(\u001b[32m'ghost'\u001b[39m)\u001b[33m,\u001b[39m \u001b[32m'whatever'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/\\/login\\?error/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m unknownMsg \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.bg-red-50'\u001b[39m)\u001b[33m.\u001b[39minnerText()\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests/auth/logic.spec.ts",
+                        "column": 15,
+                        "line": 25
+                      },
+                      "message": "ReferenceError: uniqueEmail is not defined\n\n \u001b[90m 23 |\u001b[39m \u001b[90m// TC-AUTH-03: unknown email must not reveal that the account doesn't exist\u001b[39m\n \u001b[90m 24 |\u001b[39m test(\u001b[32m'TC-AUTH-03: unknown email gives same error as wrong password'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m   \u001b[36mawait\u001b[39m login(page\u001b[33m,\u001b[39m uniqueEmail(\u001b[32m'ghost'\u001b[39m)\u001b[33m,\u001b[39m \u001b[32m'whatever'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/\\/login\\?error/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 27 |\u001b[39m   \u001b[36mconst\u001b[39m unknownMsg \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'.bg-red-50'\u001b[39m)\u001b[33m.\u001b[39minnerText()\u001b[33m;\u001b[39m\n \u001b[90m 28 |\u001b[39m\n\u001b[2m    at /home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests/auth/logic.spec.ts:25:15\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T16:11:33.474Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results/auth-logic-TC-AUTH-03-unkn-bfffc-ame-error-as-wrong-password-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results/auth-logic-TC-AUTH-03-unkn-bfffc-ame-error-as-wrong-password-chromium/video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results/auth-logic-TC-AUTH-03-unkn-bfffc-ame-error-as-wrong-password-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/test-results/auth-logic-TC-AUTH-03-unkn-bfffc-ame-error-as-wrong-password-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/dharani-prasad-s/Documents/Software Testing/End Project/Hospital-Management-System-Spring-Boot-main/e2e/tests/auth/logic.spec.ts",
+                    "column": 15,
+                    "line": 25
+                  }
+                }
+              ],
+              "status": "unexpected"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-45119161ebe3ec8c1a09",
+          "file": "auth/logic.spec.ts",
+          "line": 24,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-04: logout then back button cannot reach protected page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "689a6959afc4fedd5f8b-73a4d85de726d8b087d0",
+          "file": "auth/logic.spec.ts",
+          "line": 36,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "auth/register.spec.ts",
+      "file": "auth/register.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-AUTH-05: new patient can register and then log in",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-3d9d46cc99324f24d0af",
+          "file": "auth/register.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-05b: success message is shown after registration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-7b592352d4aa2acf5c77",
+          "file": "auth/register.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-06: duplicate email is rejected with a visible error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-f9104560bd6b6d8b2fbb",
+          "file": "auth/register.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-07 (UI, 6 chars): accepted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-fdde43f5a5f92aa65746",
+          "file": "auth/register.spec.ts",
+          "line": 54,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-07 (UI, 7 chars): accepted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-f886be226fcf3cf192fc",
+          "file": "auth/register.spec.ts",
+          "line": 54,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-07 (UI, 5 chars): blocked by the browser",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-ffad4863cff4a45aa049",
+          "file": "auth/register.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "TC-AUTH-07 (server, password \"12345\"): rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-73476269fcf384011624",
+          "file": "auth/register.spec.ts",
+          "line": 69,
+          "column": 3
+        },
+        {
+          "title": "TC-AUTH-07 (server, password \"\"): rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            },
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "7a2e1e1ccab58a85dc6a-fa638ad1d75abf94707b",
+          "file": "auth/register.spec.ts",
+          "line": 69,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-11-26T16:10:54.991Z",
+    "duration": 43635.223,
+    "expected": 4,
+    "skipped": 37,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
