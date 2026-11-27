@@ -98,7 +98,8 @@ Schedules
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/Hospital-Management-System-Spring-Boot.git
+git clone https://github.com/dharani070707/Software-Project.git
+cd Software-Project
 ```
 
 ---
@@ -150,7 +151,50 @@ docker-compose up --build
 | Role | Email | Password |
 |------|-------|----------|
 | Admin | admin@hospital.com | password |
-| Doctor | doctor@hospital.com | password |
+| Doctor | sarah@hospital.com | password |
+| Patient | patient@hospital.com | password |
+
+---
+
+## End-to-End Tests (Playwright)
+
+The `e2e/` folder holds the CSE731 test suite: Playwright + TypeScript,
+run on Chromium, Firefox and WebKit. Tests also query PostgreSQL directly to
+confirm that UI actions really changed the database.
+
+### 1. Start the app against a local database
+
+```bash
+createdb hospitaldb
+SPRING_DATASOURCE_USERNAME=<db user> SPRING_DATASOURCE_PASSWORD=<db password> ./mvnw spring-boot:run
+```
+
+The app listens on **http://localhost:8081** and seeds the three users above.
+
+### 2. Install and run the tests
+
+```bash
+cd e2e
+npm ci
+npx playwright install          # downloads the three browsers
+export PGUSER=<db user> PGPASSWORD=<db password>   # PGDATABASE defaults to hospitaldb
+npm test                        # all browsers
+npm run test:chromium           # one browser, faster while developing
+npm run report                  # open the HTML report
+npm run summary                 # pass/fail tables from results.json
+```
+
+| Folder | What it covers |
+|---|---|
+| `tests/auth` | login, logout, registration |
+| `tests/appointments` | booking and who can see a booking |
+| `tests/workflow` | full multi-role critical paths |
+| `tests/admin` | admin edits and deletes |
+| `tests/negative` | bypass testing, unauthorized access (session-based), network failures |
+
+Tests run one at a time (`workers: 1`) because they share one database. Each
+test creates its own users with unique emails, so the database never needs
+resetting between runs.
 
 ---
 

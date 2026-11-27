@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { USERS, login } from '../../helper/auth';
 import { USERS, login, uniqueEmail } from '../../helper/auth';
 
 // TC-AUTH-01: valid login for each role
