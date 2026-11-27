@@ -2,9 +2,9 @@
 
 **End-to-end testing of a Hospital Management System**
 
-| | |
+| Project | Details |
 |---|---|
-| Team | `<Name 1> (<Roll no.>)`, `<Name 2> (<Roll no.>)` |
+| Team | Dharani Prasad S (MT2025043), Abhishek Prasanna (MT2025007) |
 | Repository | https://github.com/dharani070707/Software-Project |
 | Test framework | Playwright 1.65.1 (TypeScript), Chromium / Firefox / WebKit |
 | Test run | 27 Nov 2026, 61 test cases × 3 browsers = 183 executions |
@@ -25,7 +25,7 @@ A Hospital Management System with three roles. **Patients** register, log in and
 ### 1.1 Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Browser
         UI[Thymeleaf pages<br/>login · register · dashboards · booking]
         CAL[FullCalendar JS<br/>fetch /appointment/events]
@@ -407,4 +407,14 @@ The install and run steps are in `README.MD` → "End-to-End Tests (Playwright)"
 
 ## 8. Tools and assistance
 
-`<Describe here, in your own words, any AI assistance used, as agreed with the instructor.>`
+The project brief asks teams not to use AI agents for testing. Before using any, we checked with the instructor, who allowed AI help provided we can explain all of the work in the viva.
+
+| Part of the work | Who did it |
+|---|---|
+| Choosing the application, the Playwright setup, and the first authentication and registration tests (TC-AUTH-01…07, including the first bypass test) | Team |
+| Setting up the local environment (database, running the app, installing browsers) | Team, with help from Claude Code (Anthropic's AI coding assistant) |
+| Remaining test code (appointments, workflows, admin, bypass, session and network tests), the DB helpers, and the first draft of this report | Written with Claude Code, then reviewed, run and checked by the team |
+| Checking each failure: confirming it is a real application bug and not a mistake in the test, using screenshots, server logs and database queries | Team, with Claude Code |
+| Final review of the test cases, bug reports and this report | Team |
+
+The AI assistant was a development tool used while writing the test code. It is not part of the test suite. The tests themselves are plain Playwright scripts with no AI or agentic framework involved, and they run the same way on any machine.
