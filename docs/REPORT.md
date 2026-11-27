@@ -9,6 +9,22 @@
 | Test framework | Playwright 1.65.1 (TypeScript), Chromium / Firefox / WebKit |
 | Test run | 27 Nov 2026, 61 test cases × 3 browsers = 183 executions |
 
+### Division of work
+
+The work is split into two parts. Each member designed the test cases for their part, ran and triaged them, wrote the bug reports for the bugs their tests found, and wrote the matching sections of this report.
+
+| | **Part A: Dharani Prasad S (MT2025043)** | **Part B: Abhishek Prasanna (MT2025007)** |
+|---|---|---|
+| Focus | Application, setup, access control, resilience | Data workflows and input validation |
+| Application and setup | Application under test, `docker-compose.yml`, Playwright configuration (3 browsers, reporters, 1 worker), `helper/auth.ts` (login, seeded users, unique emails) | Local test environment, `helper/app.ts` (DB assertions, CSRF tokens, test-data setup, booking and logout helpers), `summary.mjs`, README test instructions |
+| Test modules | `tests/auth`: login, logout, registration, password boundaries (TC-AUTH-\*)<br>`tests/negative/unauthorized`: **session-data-based** testing (TC-UNAUTH-\*)<br>`tests/negative/network`: network-failure simulation (TC-NET-\*) | `tests/appointments`: adding records (TC-APPT-\*)<br>`tests/workflow`: critical multi-role workflows (TC-FLOW-\*)<br>`tests/admin`: editing and deleting records (TC-ADM-\*)<br>`tests/negative/bypass`: **bypass testing** of form validation (TC-BYP-\*) |
+| Test cases | 37 | 24 |
+| Executions (× 3 browsers) | 111: 89 passed, 22 failed (80.2%) | 72: 30 passed, 42 failed (41.7%) |
+| Bugs found | BUG-01, 02, 03, 16, 17, 18 | BUG-04 to BUG-15 |
+| Report sections | 1 (application), 2.1 session and network techniques, 3 (tools, browser compatibility), 4.1, 4.6, 4.7, bug reports for Part A | 2 (problems), 2.1 bypass technique, 4.2–4.5, bug reports for Part B, 6 (summary), 7 (repository) |
+
+Part B's lower pass rate does not mean weaker tests. Bypass, admin and data-workflow tests target the application's own code, where most defects are. Part A's access-control tests exercise Spring Security, which held up well.
+
 ---
 
 ## 1. Application under test
@@ -137,7 +153,7 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 
 **P** = pass, **F** = fail; browser order C/F/W = Chromium / Firefox / WebKit. Bug IDs refer to Section 5.
 
-### 4.1 Authentication and registration (`tests/auth`)
+### 4.1 Authentication and registration (`tests/auth`): Part A, Dharani
 
 | ID | Test case | Technique | Expected result | C/F/W | Bug |
 |---|---|---|---|---|---|
@@ -153,7 +169,7 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 
 ¹ Flaky on WebKit, see 3.1.
 
-### 4.2 Appointments: adding records (`tests/appointments`)
+### 4.2 Appointments: adding records (`tests/appointments`): Part B, Abhishek
 
 | ID | Test case | Technique | Expected result | C/F/W | Bug |
 |---|---|---|---|---|---|
@@ -165,14 +181,14 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 | TC-APPT-06 | Admin sees the appointment | Positive, multi-role | Row with patient, Dr. Sarah Doctor, SCHEDULED | PPP | |
 | TC-APPT-07 | Patient B's events feed | Privacy | Does not contain patient A's appointment | PPP | |
 
-### 4.3 Critical workflows (`tests/workflow`)
+### 4.3 Critical workflows (`tests/workflow`): Part B, Abhishek
 
 | ID | Test case | Expected result | C/F/W |
 |---|---|---|---|
 | TC-FLOW-01 | Register (UI) → login → book → doctor sees → admin sees → admin deletes | DB checked at every step; row gone at the end | PPP |
 | TC-FLOW-02 | Register → admin changes role to DOCTOR → user logs in → appears in the booking dropdown | DB role = DOCTOR; doctor dashboard; selectable | PPP |
 
-### 4.4 Admin: editing and deleting records (`tests/admin`)
+### 4.4 Admin: editing and deleting records (`tests/admin`): Part B, Abhishek
 
 | ID | Test case | Expected result | C/F/W | Bug |
 |---|---|---|---|---|
@@ -182,7 +198,7 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 | TC-ADM-04 | "Complete" an appointment | Status becomes COMPLETED | FFF | BUG-08 |
 | TC-ADM-05 | Role dropdown shows the current role | Selected value = role in DB | FFF | BUG-09 |
 
-### 4.5 Bypass testing: form validation (`tests/negative/bypass.spec.ts`)
+### 4.5 Bypass testing: form validation (`tests/negative/bypass.spec.ts`): Part B, Abhishek
 
 | ID | Test case | Level | Expected result | C/F/W | Bug |
 |---|---|---|---|---|---|
@@ -197,7 +213,7 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 | TC-BYP-09 | Register with a 300-character name | Value | Stays on the form with an error; no account | FFF | BUG-15 |
 | TC-BYP-10 | Register with an `<img onerror>` name | Value (XSS) | Shown as text, script never runs | PPP | |
 
-### 4.6 Unauthorized access: session-data-based (`tests/negative/unauthorized.spec.ts`)
+### 4.6 Unauthorized access: session-data-based (`tests/negative/unauthorized.spec.ts`): Part A, Dharani
 
 | ID | Test case | Expected result | C/F/W |
 |---|---|---|---|
@@ -214,7 +230,7 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 | TC-UNAUTH-11 | Booking POST without `_csrf` | 403, no row | PPP |
 | TC-UNAUTH-12 | Doctor tries to book | "Only registered patients can book appointments." | PPP |
 
-### 4.7 Network failures (`tests/negative/network.spec.ts`)
+### 4.7 Network failures (`tests/negative/network.spec.ts`): Part A, Dharani
 
 | ID | Test case | Simulation | Expected result | C/F/W | Bug |
 |---|---|---|---|---|---|
@@ -231,26 +247,26 @@ The same 21 tests fail on all three engines. They are application bugs, not brow
 
 Each bug was reproduced on all three browsers. Screenshot, video and trace for every failure are in the HTML report (`npm run report`). Severity: **High** = data integrity or security; **Medium** = a feature broken or a crash; **Low** = cosmetic or feedback only.
 
-| ID | Title | Severity | Found by |
-|---|---|---|---|
-| BUG-01 | Registration success message is never shown | Low | TC-AUTH-05b |
-| BUG-02 | Duplicate-email error is never shown | Medium | TC-AUTH-06 |
-| BUG-03 | Server accepts passwords shorter than 6 characters, even empty ones | High | TC-AUTH-07 |
-| BUG-04 | Patient calendar never shows any appointment | High | TC-APPT-02 |
-| BUG-05 | No confirmation after booking | Low | TC-APPT-03 |
-| BUG-06 | Patient dashboard counters always show 0 | Medium | TC-APPT-04 |
-| BUG-07 | Deleting a patient who has appointments crashes (HTTP 500) | High | TC-ADM-03 |
-| BUG-08 | "Complete" appointment button does nothing (no endpoint) | Medium | TC-ADM-04 |
-| BUG-09 | Role dropdown doesn't show the user's current role | Medium | TC-ADM-05 |
-| BUG-10 | Appointments can be booked in the past | High | TC-BYP-01 |
-| BUG-11 | Any user (e.g. the admin) can be booked as the doctor | High | TC-BYP-02 |
-| BUG-12 | Invalid doctor id or time crashes the booking (HTTP 500) | Medium | TC-BYP-03, 04 |
-| BUG-13 | A doctor can be double-booked for the same slot | High | TC-BYP-06 |
-| BUG-14 | Server accepts an empty name and an invalid email | Medium | TC-BYP-07, 08 |
-| BUG-15 | A name longer than 255 characters fails silently and looks like success | Medium | TC-BYP-09 |
-| BUG-16 | Calendar shows nothing when its data request fails | Medium | TC-NET-01, 02 |
-| BUG-17 | Calendar page crashes with a script error when the CDN is down | Low | TC-NET-03 |
-| BUG-18 | `docker-compose up` starts an app that can't be reached | Low | Inspection (not executed) |
+| ID | Title | Severity | Found by | Owner |
+|---|---|---|---|---|
+| BUG-01 | Registration success message is never shown | Low | TC-AUTH-05b | A, Dharani |
+| BUG-02 | Duplicate-email error is never shown | Medium | TC-AUTH-06 | A, Dharani |
+| BUG-03 | Server accepts passwords shorter than 6 characters, even empty ones | High | TC-AUTH-07 | A, Dharani |
+| BUG-04 | Patient calendar never shows any appointment | High | TC-APPT-02 | B, Abhishek |
+| BUG-05 | No confirmation after booking | Low | TC-APPT-03 | B, Abhishek |
+| BUG-06 | Patient dashboard counters always show 0 | Medium | TC-APPT-04 | B, Abhishek |
+| BUG-07 | Deleting a patient who has appointments crashes (HTTP 500) | High | TC-ADM-03 | B, Abhishek |
+| BUG-08 | "Complete" appointment button does nothing (no endpoint) | Medium | TC-ADM-04 | B, Abhishek |
+| BUG-09 | Role dropdown doesn't show the user's current role | Medium | TC-ADM-05 | B, Abhishek |
+| BUG-10 | Appointments can be booked in the past | High | TC-BYP-01 | B, Abhishek |
+| BUG-11 | Any user (e.g. the admin) can be booked as the doctor | High | TC-BYP-02 | B, Abhishek |
+| BUG-12 | Invalid doctor id or time crashes the booking (HTTP 500) | Medium | TC-BYP-03, 04 | B, Abhishek |
+| BUG-13 | A doctor can be double-booked for the same slot | High | TC-BYP-06 | B, Abhishek |
+| BUG-14 | Server accepts an empty name and an invalid email | Medium | TC-BYP-07, 08 | B, Abhishek |
+| BUG-15 | A name longer than 255 characters fails silently and looks like success | Medium | TC-BYP-09 | B, Abhishek |
+| BUG-16 | Calendar shows nothing when its data request fails | Medium | TC-NET-01, 02 | A, Dharani |
+| BUG-17 | Calendar page crashes with a script error when the CDN is down | Low | TC-NET-03 | A, Dharani |
+| BUG-18 | `docker-compose up` starts an app that can't be reached | Low | Inspection (not executed) | A, Dharani |
 
 ### BUG-01: Registration success message is never shown
 - **Steps:** Open `/register` → fill a valid form → Register.
@@ -409,12 +425,15 @@ The install and run steps are in `README.MD` → "End-to-End Tests (Playwright)"
 
 The project brief asks teams not to use AI agents for testing. Before using any, we checked with the instructor, who allowed AI help provided we can explain all of the work in the viva.
 
-| Part of the work | Who did it |
-|---|---|
-| Choosing the application, the Playwright setup, and the first authentication and registration tests (TC-AUTH-01…07, including the first bypass test) | Team |
-| Setting up the local environment (database, running the app, installing browsers) | Team, with help from Claude Code (Anthropic's AI coding assistant) |
-| Remaining test code (appointments, workflows, admin, bypass, session and network tests), the DB helpers, and the first draft of this report | Written with Claude Code, then reviewed, run and checked by the team |
-| Checking each failure: confirming it is a real application bug and not a mistake in the test, using screenshots, server logs and database queries | Team, with Claude Code |
-| Final review of the test cases, bug reports and this report | Team |
+The AI assistant used was Claude Code (Anthropic's AI coding assistant).
+
+| Part | Work | How it was done |
+|---|---|---|
+| A, Dharani | Application, Playwright configuration, `helper/auth.ts`, authentication and registration tests (TC-AUTH-01…07) | Written by Dharani, without AI |
+| A, Dharani | Unauthorized-access (session) tests and network-failure tests | Test code written with Claude Code; test design, review, runs and failure triage by Dharani |
+| B, Abhishek | Local environment setup | Abhishek, with help from Claude Code |
+| B, Abhishek | Appointment, workflow, admin and bypass tests; `helper/app.ts`; `summary.mjs` | Test code written with Claude Code; test design, review, runs and failure triage by Abhishek |
+| Both | Confirming each failure is a real application bug, not a test mistake (screenshots, server logs, database queries) | Each member for their own part, with Claude Code |
+| Both | This report | First draft with Claude Code; each member reviewed and corrected the sections for their part |
 
 The AI assistant was a development tool used while writing the test code. It is not part of the test suite. The tests themselves are plain Playwright scripts with no AI or agentic framework involved, and they run the same way on any machine.
