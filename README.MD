@@ -184,13 +184,17 @@ npm run report                  # open the HTML report
 npm run summary                 # pass/fail tables from results.json
 ```
 
-| Folder | What it covers |
-|---|---|
-| `tests/auth` | login, logout, registration |
-| `tests/appointments` | booking and who can see a booking |
-| `tests/workflow` | full multi-role critical paths |
-| `tests/admin` | admin edits and deletes |
-| `tests/negative` | bypass testing, unauthorized access (session-based), network failures |
+| Spec | What it covers | Owner |
+|---|---|---|
+| `tests/auth/*` | login, logout, registration, password boundaries | Dharani |
+| `tests/negative/bypass-registration.spec.ts` | bypass testing of the registration form | Dharani |
+| `tests/negative/network.spec.ts` | network failures (abort, 500, slow, offline, CDN down) | Dharani |
+| `tests/negative/access.spec.ts` | anonymous access, data exposure | Dharani |
+| `tests/appointments/*` | booking and who can see a booking | Abhishek |
+| `tests/workflow/*` | full multi-role critical paths | Abhishek |
+| `tests/admin/*` | admin edits and deletes | Abhishek |
+| `tests/negative/bypass-booking.spec.ts` | bypass testing of the booking form | Abhishek |
+| `tests/negative/session.spec.ts` | unauthorized access, session-data-based | Abhishek |
 
 Tests run one at a time (`workers: 1`) because they share one database. Each
 test creates its own users with unique emails, so the database never needs

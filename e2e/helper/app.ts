@@ -86,6 +86,15 @@ export async function newLoggedInPatient(page: Page, prefix = 'pt'): Promise<Tes
   return p;
 }
 
+// Bypass testing: turn off every HTML5 check on the page (required, min,
+// minlength, type=email) so the input goes to the server unchecked.
+export async function disableBrowserValidation(page: Page) {
+  await page.evaluate(() => {
+    document.querySelectorAll('form').forEach((f) => (f.noValidate = true));
+    document.querySelectorAll('input').forEach((i) => i.removeAttribute('min'));
+  });
+}
+
 // Ends the session the same way the Logout button does (POST /logout + CSRF).
 // Used where logout is only a step between roles; the button itself is
 // tested in TC-AUTH-04. Some pages (e.g. /admin/users) have no Logout button.

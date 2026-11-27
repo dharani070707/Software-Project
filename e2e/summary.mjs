@@ -4,12 +4,16 @@ import { readFileSync } from 'node:fs';
 
 const report = JSON.parse(readFileSync(new URL('./results.json', import.meta.url)));
 
+// Which spec files belong to which team member (see docs/REPORT.md)
+const PART_A = ['auth/', 'negative/bypass-registration', 'negative/network', 'negative/access'];
+
 // Flatten the nested suite tree into one row per (test, browser)
 const rows = [];
 (function walk(suite) {
   for (const spec of suite.specs ?? []) {
     for (const t of spec.tests) {
       rows.push({
+        part: PART_A.some((f) => spec.file.startsWith(f)) ? 'A (Dharani)' : 'B (Abhishek)',
         module: spec.file.split('/')[0],                // auth, appointments, admin, ...
         title: spec.title,
         browser: t.projectName,
@@ -39,6 +43,7 @@ function table(groupBy) {
 
 console.log(`Run started ${report.stats.startTime}, took ${(report.stats.duration / 1000).toFixed(0)} s\n`);
 table('browser');
+table('part');
 table('module');
 
 // Tests whose result differs between browsers (browser-compatibility issues)

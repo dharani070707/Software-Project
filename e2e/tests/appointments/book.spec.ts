@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { USERS, login } from '../../helper/auth';
 import { appointmentsOf, bookViaUi, isoDate, logout, newLoggedInPatient } from '../../helper/app';
 
-// Positive tests for the "add a record" requirement: a patient books an
+// Part B (Abhishek): positive tests for the "add a record" requirement: a patient books an
 // appointment and every role that should see it, does.
 // Each test registers its own fresh patient, so the patient's name (and the
 // appointment title "Checkup - <name>") is unique and tests never interfere.

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { USERS, login } from '../../helper/auth';
 import { appointmentsOf, bookViaUi, isoDate, newLoggedInPatient } from '../../helper/app';
 
-// Network-failure tests. Playwright's page.route() sits between the browser
+// Part A (Dharani): network-failure tests. Playwright's page.route() sits between the browser
 // and the network, so we can make a request fail, return an error, or be slow,
 // and context.setOffline() simulates losing the connection completely.
 // The question each test asks: does the user get told, and is data safe?

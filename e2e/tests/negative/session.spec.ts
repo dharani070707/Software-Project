@@ -2,20 +2,11 @@ import { test, expect } from '@playwright/test';
 import { USERS, login } from '../../helper/auth';
 import { appointmentsOf, csrfToken, isoDate, newLoggedInPatient, registerPatient, sql, userId } from '../../helper/app';
 
-// Unauthorized-access tests built with SESSION-DATA-BASED testing:
-// we capture, replay, tamper with, or remove the session (the JSESSIONID
-// cookie and CSRF token) and check the server enforces access rules itself.
+// Part B (Abhishek): unauthorized access with SESSION-DATA-BASED testing.
+// We capture, replay, tamper with, or remove the session (the JSESSIONID
+// cookie and the CSRF token) and check the server enforces access rules itself.
 
-// TC-UNAUTH-01: no session -> every protected page sends you to login
-for (const path of ['/admin/dashboard', '/admin/users', '/doctor/dashboard', '/patient/dashboard',
-                    '/appointment/book', '/appointment/calendar']) {
-  test(`TC-UNAUTH-01 (${path}): anonymous user is redirected to login`, async ({ page }) => {
-    await page.goto(path);
-    await expect(page).toHaveURL(/\/login/);
-  });
-}
-
-// TC-UNAUTH-02: the JSON API also refuses anonymous callers
+// TC-UNAUTH-02: the JSON API also refuses callers without a session
 test('TC-UNAUTH-02: anonymous call to /appointment/events returns no data', async ({ request }) => {
   const res = await request.get('/appointment/events', { maxRedirects: 0 });
   expect(res.status()).toBe(302);

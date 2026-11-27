@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { USERS, login, uniqueEmail } from '../../helper/auth';
 import { appointmentsOf, bookViaUi, isoDate, logout, sql } from '../../helper/app';
 
-// The critical end-to-end workflows of the application. Each test drives one
+// Part B (Abhishek): the critical end-to-end workflows of the application. Each test drives one
 // record through several roles, and checks the database at every step.
 
 // TC-FLOW-01: patient life cycle

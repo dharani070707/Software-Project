@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { USERS, login } from '../../helper/auth';
 import { appointmentsOf, bookViaUi, isoDate, logout, newLoggedInPatient, registerPatient, sql } from '../../helper/app';
 
-// Admin "edit / delete existing records" features, checked against the DB.
+// Part B (Abhishek): admin "edit / delete existing records" features, checked against the DB.
 
 async function loginAdmin(page: import('@playwright/test').Page) {
   await login(page, USERS.admin.email, USERS.admin.password);
