@@ -11,7 +11,7 @@
 
 ### Division of work
 
-The work is split equally into two parts. Each member designed, ran and triaged the tests in their part, wrote the bug reports for the bugs those tests found, and wrote their sections of this report.
+The testing work is split equally into two parts. Each member designed, ran and triaged the tests in their part, and wrote the bug reports for the bugs those tests found.
 
 | | **Part A: Dharani Prasad S (MT2025043)** | **Part B: Abhishek Prasanna (MT2025007)** |
 |---|---|---|
@@ -22,7 +22,6 @@ The work is split equally into two parts. Each member designed, ran and triaged 
 | Test cases | **31** | **31** |
 | Executions (× 3 browsers) | 93: 60 passed, 33 failed | 93: 60 passed, 33 failed |
 | Bugs reported | **10** (BUG-01 to BUG-10) | **10** (BUG-11 to BUG-20) |
-| Report sections | 1.1 Architecture, 1.3 Tools, 1.4 Browser compatibility, 2.1-A and 2.2-A, 3 Repository | 1.2 Testing problems and techniques, 2.1-B and 2.2-B, 2.3 Execution summary |
 
 ---
 
