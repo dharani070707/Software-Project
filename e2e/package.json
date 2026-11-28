@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "report": "playwright show-report",
+    "summary": "node summary.mjs"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.65.1",
-    "@types/node": "^26.6.11"
+    "@types/node": "^26.6.11",
+    "@types/pg": "^8.23.1",
+    "pg": "^8.23.1"
   }
 }
